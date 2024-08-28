@@ -64,6 +64,6 @@ export default class KickScraper {
 
 	fetchClipData = async (channel) =>
 		this.scrapeData(
-			`https://kick.com/api/v2/channels/${channel}/clips?cursor=0&sort=views&time=all`
+			`https://kick.com/api/v2/channels/${channel}/clips?cursor=0&sort=view&time=all`
 		);
 }
