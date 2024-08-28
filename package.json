@@ -1,0 +1,48 @@
+{
+  "name": "kick-dl",
+  "version": "1.0.0",
+  "description": "A CLI tool for easily downloading VODs and clips from Kick.com",
+  "bin": {
+    "kick-dl": "./bin/cli.js"
+  },
+  "type": "module",
+  "main": "./bin/cli.js",
+  "author": "Julio Cesar Garcia <dev.juliogarciape@gmail.com>",
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/juliogarciape/kick-dl#README",
+  "scripts": {
+    "start": "node ./bin/cli.js"
+  },
+  "keywords": [
+    "kick",
+    "streaming",
+    "downloader",
+    "VOD/clips",
+    "livestream",
+    "youtube-dl",
+    "twitch-dl",
+    "yt-dlp",
+    "terminal",
+    "cli",
+    "command-line",
+    "kick.com"
+  ],
+  "dependencies": {
+    "@inquirer/prompts": "^5.3.8",
+    "axios": "^1.7.4",
+    "commander": "^12.1.0",
+    "luxon": "^3.5.0",
+    "ora": "^8.0.1",
+    "puppeteer": "21.5.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/juliogarciape/kick-dl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/juliogarciape/kick-dl/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
