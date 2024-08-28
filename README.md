@@ -1,8 +1,16 @@
 # :sparkles: Kick-DL :green_heart:
 
-**Kick-DL is a command-line interface (CLI) tool designed for easily downloading VODs and clips from Kick.com.**
+**Kick-DL is a command-line interface (CLI) tool designed for easily downloading VODs and clips from Kick.com**
 
-> Kick-DL uses [youtube-dl](https://github.com/ytdl-org/youtube-dl) for downloading videos and [ffmpeg](https://github.com/FFmpeg/FFmpeg) for handling media formats.
+## Table of Contents :books:
+
+- [Features :rocket:](#features-rocket)
+- [Prerequisites :gear:](#prerequisites-gear)
+- [Installation :package:](#installation-package)
+- [Disclaimer :warning:](#disclaimer-warning)
+- [Contributing :handshake:](#contributing-handshake)
+- [License :scroll:](#license-scroll)
+- [Contact :email:](#contact-email)
 
 ## Features :rocket:
 
@@ -42,8 +50,6 @@ To use Kick-DL, ensure you have the following installed:
 
 ```sh
 npm install -g kick-dl
-
-kick-dl --version
 ```
 
 ## Disclaimer :warning:
@@ -62,4 +68,4 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
 
 For questions or support, please contact me at [dev.juliogarciape@gmail.com](mailto:dev.juliogarciape@gmail.com).
 
-#### Thank you for using Kick-DL!
+### Thanks for installing Kick-DL! :sparkling_heart:
