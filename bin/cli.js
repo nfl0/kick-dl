@@ -7,7 +7,7 @@ const program = new Command();
 
 program
 	.name('kick-dl')
-	.version('1.0.0')
+	.version('1.0.1')
 	.description(
 		'A CLI tool for easily downloading VODs and Clips from Kick.com'
 	);
