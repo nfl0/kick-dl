@@ -1,6 +1,7 @@
 import KickApi from './api/kick.js';
 import downloadMedia from './lib/downloader.js';
 import { convertTime } from './helpers.js';
+import logs from './lib/logs.js';
 import { input, select, confirm } from '@inquirer/prompts';
 import ora from 'ora';
 
@@ -15,25 +16,51 @@ const spinner = ora({
 	spinner: 'dots',
 });
 
+const formatInput = (input) => input.toLowerCase().replace(/\s+/g, '_');
+
+const customPrefix = logs.green('[*]');
+
+const customTransformer = (input, { isFinal }) => {
+	if (isFinal) {
+		const formatedText = formatInput(input);
+		return logs.pink(formatedText);
+	}
+	return logs.pink(input);
+};
+
 export const initialAction = async () => {
 	try {
-		const inputChannel = await input({
-			message: 'Please, enter the Kick channel:',
+		let inputChannel = await input({
+			message: 'Please, enter the Kick Channel:',
 			required: true,
+			transformer: customTransformer,
+			theme: {
+				prefix: customPrefix,
+				style: {
+					answer: (input) => logs.pink(input),
+				},
+			},
 		});
 
+		inputChannel = formatInput(inputChannel);
 		spinner.start();
 		const result = await api.searchKickChannel(inputChannel);
 		spinner.stop();
 
 		if (result.status === false) {
-			console.log(`❌ ${inputChannel} not found 😿`);
+			console.log(`❌ ${inputChannel} not found`);
 			return;
 		}
 
 		const username = result.data.user.username;
 		const contentType = await select({
 			message: 'Select an option to list:',
+			theme: {
+				prefix: customPrefix,
+				style: {
+					answer: (input) => logs.yellow(input),
+				},
+			},
 			loop: true,
 			choices: [
 				{
@@ -57,7 +84,7 @@ export const initialAction = async () => {
 		spinner.stop();
 
 		if (contentList.status === false) {
-			console.log(`❌ The content of ${username} is not avaible 😿`);
+			console.log(`❌ The content of ${username} is not avaible`);
 			return;
 		}
 
@@ -82,11 +109,23 @@ export const initialAction = async () => {
 			message: `Select the ${contentType} to download:`,
 			choices: [...orderedList],
 			pageSize: 10,
+			theme: {
+				prefix: customPrefix,
+				style: {
+					answer: (input) => logs.blue(input),
+				},
+			},
 			loop: false,
 		});
 
 		const confirmDownload = await confirm({
-			message: `This ${contentType} will be downloaded, Continue?`,
+			message: `Ready to download the ${contentType} of ${username}, Continue?`,
+			theme: {
+				prefix: logs.green('[?]'),
+				style: {
+					answer: (input) => `\x1b[38;5;34m${input}\x1b[0m`,
+				},
+			},
 		});
 
 		if (confirmDownload) {
@@ -96,13 +135,13 @@ export const initialAction = async () => {
 		}
 	} catch (error) {
 		if (error.name === 'ExitPromptError') {
-			console.info('\n================================');
+			console.info('================================');
 			console.info('  Ah shit, here we go again 🐈  ');
 			console.info('================================');
 		}
 
 		if (error.name === 'NetworkError') {
-			console.error('❌ Network error... Please try again later');
+			console.log('❌ Network error... Please try again later');
 		}
 	} finally {
 		handleExit();

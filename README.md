@@ -1,5 +1,9 @@
 # :sparkles: Kick-DL :green_heart:
 
+![Downloads](https://img.shields.io/npm/dw/kick-dl?label=Downloads)
+![Version](https://img.shields.io/npm/v/kick-dl?label=Version)
+![License](https://img.shields.io/npm/l/kick-dl?label=License)
+
 **Kick-DL is a command-line interface (CLI) tool designed for easily downloading VODs and Clips from Kick.com**
 
 ![CLI Screenshot](media/cli-screenshot.png)
@@ -53,7 +57,7 @@ To use Kick-DL, ensure you have the following installed:
 
 ## Installation :package:
 
-**Install the Kick-DL package globally using the following command:**
+Install the Kick-DL package globally using the following command:
 
 ```sh
 npm install -g kick-dl
@@ -77,6 +81,4 @@ For questions or support, please contact me at [dev.juliogarciape@gmail.com](mai
 
 ## Acknowledgements :clap:
 
-Special thanks to the developers of [youtube-dl](https://github.com/ytdl-org/youtube-dl) and [FFmpeg](https://ffmpeg.org/) for their excellent tools which made Kick-DL possible.
-
-### Thanks for installing Kick-DL! :sparkling_heart:
+Special thanks to the developers of [youtube-dl](https://github.com/ytdl-org/youtube-dl), [Carbon](https://carbon.now.sh/) for enhancing terminal aesthetics and [FFmpeg](https://ffmpeg.org/) for their excellent tools which made [Kick-DL](https://www.npmjs.com/package/kick-dl) possible.

@@ -37,7 +37,7 @@ export default class KickApi {
 		} catch (error) {
 			return {
 				status: false,
-				message: 'Error content not avaible',
+				message: 'Content not avaible',
 			};
 		}
 	};

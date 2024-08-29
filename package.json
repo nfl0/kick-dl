@@ -1,7 +1,7 @@
 {
   "name": "kick-dl",
-  "version": "1.0.0",
-  "description": "A CLI tool for easily downloading VODs and clips from Kick.com",
+  "version": "1.0.1",
+  "description": "A CLI tool for easily downloading VODs and Clips from Kick.com.",
   "bin": {
     "kick-dl": "./bin/cli.js"
   },
@@ -14,22 +14,22 @@
     "start": "node ./bin/cli.js"
   },
   "keywords": [
-    "kick",
-    "streaming",
-    "downloader",
-    "VOD/clips",
-    "livestream",
+    "Kick.com",
+    "Kick Streaming",
+    "Downloader",
+    "VODs/Clips",
+    "Livestream",
+    "CLI",
     "youtube-dl",
     "twitch-dl",
     "yt-dlp",
-    "terminal",
-    "cli",
-    "command-line",
-    "kick.com"
+    "Kick Api",
+    "Command-Line"
   ],
   "dependencies": {
     "@inquirer/prompts": "^5.3.8",
     "axios": "^1.7.4",
+    "chalk": "^5.3.0",
     "commander": "^12.1.0",
     "luxon": "^3.5.0",
     "ora": "^8.0.1",

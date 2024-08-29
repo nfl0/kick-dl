@@ -9,7 +9,7 @@ program
 	.name('kick-dl')
 	.version('1.0.0')
 	.description(
-		'A CLI tool for easily downloading VODs and clips from Kick.com'
+		'A CLI tool for easily downloading VODs and Clips from Kick.com'
 	);
 
 program.action(async () => {
