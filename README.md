@@ -1,25 +1,26 @@
 # :sparkles: Kick-DL :green_heart:
 
-![Downloads](https://img.shields.io/npm/dw/kick-dl?label=Downloads)
-![Version](https://img.shields.io/npm/v/kick-dl?label=Version)
-![License](https://img.shields.io/npm/l/kick-dl?label=License)
+![Downloads](https://img.shields.io/npm/dm/kick-dl?label=Downloads&color=red&logo=npm)
+![License](https://img.shields.io/npm/l/kick-dl?label=License&color=yellow&logo=github)
+![Version](https://img.shields.io/npm/v/kick-dl?label=Version&color=green&logo=npm)
 
 **Kick-DL is a command-line interface (CLI) tool designed for easily downloading VODs and Clips from Kick.com**
 
 ![CLI Screenshot](media/cli-screenshot.png)
 
-> This CLI tool is inspired by [Twitch-DL](https://github.com/ihabunek/twitch-dl), created by [@ihabunek](https://github.com/ihabunek).
+> [!NOTE]
+> CLI tool is inspired by [Twitch-DL](https://github.com/ihabunek/twitch-dl), created by [@ihabunek](https://github.com/ihabunek)
 
 ## Table of Contents :books:
 
 - [Features :rocket:](#features-rocket)
-- [Prerequisites :gear:](#prerequisites-gear)
+- [Requirements :gear:](#requirements-gear)
+- [Support Us :sparkling_heart:](#support-us-sparkling_heart)
 - [Installation :package:](#installation-package)
 - [Disclaimer :warning:](#disclaimer-warning)
 - [Contributing :handshake:](#contributing-handshake)
 - [License :scroll:](#license-scroll)
 - [Contact :email:](#contact-email)
-- [Acknowledgements :clap:](#acknowledgements-clap)
 
 ## Features :rocket:
 
@@ -28,7 +29,7 @@
 - **Fast Clip Downloads**: Grab and save clips from Kick effortlessly using an intuitive command-line interface.
 - **Customizable Options**: Adjust settings like format and quality to get exactly what you want.
 
-## Prerequisites :gear:
+## Requirements :gear:
 
 To use Kick-DL, ensure you have the following installed:
 
@@ -55,17 +56,33 @@ To use Kick-DL, ensure you have the following installed:
         sudo apt install ffmpeg
         ```
 
+## Support Us :sparkling_heart:
+
+If you find this project useful and want us to keep improving it, please consider:
+
+- **Star the Repo**: [Give it a star](https://github.com/juliogarciape/kick-dl) on GitHub to help increase its visibility.
+- **Support via Paypal** *(Soon)*: If your donation was just $1, it would really make this guy very happy.
+- **Share**: Let others know about this project.
+
 ## Installation :package:
 
-Install the Kick-DL package globally using the following command:
+To install Kick-DL, run the following command in your terminal:
+
+**using npm**:
 
 ```sh
 npm install -g kick-dl
 ```
 
+**using pnpm**:
+
+```sh
+pnpm add -g kick-dl
+```
+
 ## Disclaimer :warning:
 
-Kick-DL is not affiliated with or endorsed by [Kick.com](https://kick.com). It is an independent tool created to facilitate video downloads from the Kick.com platform.
+This project is not affiliated, associated, authorized, endorsed by, or in any way officially connected with `Kick` or any of its subsidiaries or its affiliates. The official Kick website can be found at [https://kick.com/](https://kick.com/). `Kick` as well as related names, marks, emblems and images are registered trademarks of their respective owners.
 
 ## Contributing :handshake:
 
@@ -78,7 +95,3 @@ This project is licensed under the Apache-2.0 License. See the [LICENSE](LICENSE
 ## Contact :email:
 
 For questions or support, please contact me at [dev.juliogarciape@gmail.com](mailto:dev.juliogarciape@gmail.com).
-
-## Acknowledgements :clap:
-
-Special thanks to the developers of [youtube-dl](https://github.com/ytdl-org/youtube-dl), [Carbon](https://carbon.now.sh/) for enhancing terminal aesthetics and [FFmpeg](https://ffmpeg.org/) for their excellent tools which made [Kick-DL](https://www.npmjs.com/package/kick-dl) possible.
