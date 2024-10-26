@@ -28,6 +28,28 @@ const customTransformer = (input, { isFinal }) => {
 	return logs.pink(input);
 };
 
+const downloadAllVods = async (channel) => {
+	try {
+		spinner.start();
+		const contentList = await api.listKickContent(channel, 'vod');
+		spinner.stop();
+
+		if (contentList.status === false) {
+			console.log(`❌ ${contentList.message}`);
+			return;
+		}
+
+		for (const content of contentList.data) {
+			const downloadLink = content.source;
+			spinner.start();
+			await downloadMedia('vod', downloadLink);
+			spinner.stop();
+		}
+	} catch (error) {
+		console.log(`❌ ${error.message}`);
+	}
+};
+
 export const initialAction = async () => {
 	try {
 		let inputChannel = await input({
@@ -73,8 +95,18 @@ export const initialAction = async () => {
 					value: 'clip',
 					description: `- List short clips from ${username}, perfect for highlights.`,
 				},
+				{
+					name: 'Download All VODs',
+					value: 'download_all_vods',
+					description: `- Download all VODs from ${username}.`,
+				},
 			],
 		});
+
+		if (contentType === 'download_all_vods') {
+			await downloadAllVods(inputChannel);
+			return;
+		}
 
 		spinner.start();
 		const contentList = await api.listKickContent(

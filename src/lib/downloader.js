@@ -15,4 +15,10 @@ const downloadMedia = async (contentType = 'media', downloadLink) => {
 	}
 };
 
-export default downloadMedia;
+const downloadAllMedia = async (contentType = 'media', downloadLinks) => {
+	for (const downloadLink of downloadLinks) {
+		await downloadMedia(contentType, downloadLink);
+	}
+};
+
+export { downloadMedia, downloadAllMedia };
