@@ -41,4 +41,19 @@ export default class KickApi {
 			};
 		}
 	};
+
+	fetchAllVods = async (channel) => {
+		try {
+			const result = await Scraper.fetchVideoData(channel);
+			return {
+				status: true,
+				data: result,
+			};
+		} catch (error) {
+			return {
+				status: false,
+				message: error.message,
+			};
+		}
+	};
 }
