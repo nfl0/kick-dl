@@ -1,10 +1,11 @@
 import { exec } from 'child_process';
 import { promisify } from 'util';
+import path from 'path';
 
 const execPromise = promisify(exec);
 
-const downloadMedia = async (contentType = 'media', downloadLink) => {
-	const command = `youtube-dl -o ${contentType}.mp4 "${downloadLink}"`;
+const downloadMedia = async (contentType = 'media', downloadLink, fileName) => {
+	const command = `youtube-dl -o ${fileName}.mp4 "${downloadLink}"`;
 
 	try {
 		const { stdout } = await execPromise(command);
@@ -16,8 +17,9 @@ const downloadMedia = async (contentType = 'media', downloadLink) => {
 };
 
 const downloadAllMedia = async (contentType = 'media', downloadLinks) => {
-	for (const downloadLink of downloadLinks) {
-		await downloadMedia(contentType, downloadLink);
+	for (const [index, downloadLink] of downloadLinks.entries()) {
+		const fileName = `${contentType}_${index + 1}`;
+		await downloadMedia(contentType, downloadLink, fileName);
 	}
 };
 
