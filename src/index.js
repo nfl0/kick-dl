@@ -1,5 +1,5 @@
 import KickApi from './api/kick.js';
-import downloadMedia from './lib/downloader.js';
+import { downloadMedia, downloadAllMedia } from './lib/downloader.js';
 import { convertTime } from './helpers.js';
 import logs from './lib/logs.js';
 import { input, select, confirm } from '@inquirer/prompts';
@@ -39,12 +39,8 @@ const downloadAllVods = async (channel) => {
 			return;
 		}
 
-		for (const content of contentList.data) {
-			const downloadLink = content.source;
-			spinner.start();
-			await downloadMedia('vod', downloadLink);
-			spinner.stop();
-		}
+		const downloadLinks = contentList.data.map(content => content.source);
+		await downloadAllMedia('vod', downloadLinks);
 	} catch (error) {
 		console.log(`❌ ${error.message}`);
 	}
