@@ -50,6 +50,12 @@ export default class KickApi {
 				data: result,
 			};
 		} catch (error) {
+			if (error.message.includes('403')) {
+				return {
+					status: false,
+					message: 'Failed to load URL: 403 - Access Forbidden',
+				};
+			}
 			return {
 				status: false,
 				message: error.message,
