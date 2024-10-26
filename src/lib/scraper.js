@@ -18,6 +18,7 @@ export default class KickScraper {
 			} else {
 				browser = await puppeteer.launch({
 					headless: 'new',
+					args: ['--no-sandbox'],
 					...browserOptions,
 				});
 
