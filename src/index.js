@@ -1,5 +1,5 @@
 import KickApi from './api/kick.js';
-import downloadMedia from './lib/downloader.js';
+import { downloadMedia, downloadAllMedia } from './lib/downloader.js';
 import { convertTime } from './helpers.js';
 import logs from './lib/logs.js';
 import { input, select, confirm } from '@inquirer/prompts';
@@ -26,6 +26,24 @@ const customTransformer = (input, { isFinal }) => {
 		return logs.pink(formatedText);
 	}
 	return logs.pink(input);
+};
+
+const downloadAllVods = async (channel) => {
+	try {
+		spinner.start();
+		const contentList = await api.listKickContent(channel, 'vod');
+		spinner.stop();
+
+		if (contentList.status === false) {
+			console.log(`❌ ${contentList.message}`);
+			return;
+		}
+
+		const downloadLinks = contentList.data.map(content => content.source);
+		await downloadAllMedia('vod', downloadLinks);
+	} catch (error) {
+		console.log(`❌ ${error.message}`);
+	}
 };
 
 export const initialAction = async () => {
@@ -73,8 +91,18 @@ export const initialAction = async () => {
 					value: 'clip',
 					description: `- List short clips from ${username}, perfect for highlights.`,
 				},
+				{
+					name: 'Download All VODs',
+					value: 'download_all_vods',
+					description: `- Download all VODs from ${username}.`,
+				},
 			],
 		});
+
+		if (contentType === 'download_all_vods') {
+			await downloadAllVods(inputChannel);
+			return;
+		}
 
 		spinner.start();
 		const contentList = await api.listKickContent(

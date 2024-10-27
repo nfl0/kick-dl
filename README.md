@@ -29,6 +29,7 @@
 - **Easy VOD Downloads**: Download Videos on Demand (VODs) from Kick quickly and easily with simple commands.
 - **Fast Clip Downloads**: Grab and save clips from Kick effortlessly using an intuitive command-line interface.
 - **Customizable Options**: Adjust settings like format and quality to get exactly what you want.
+- **Download All VODs**: Download all VODs from a channel with a single command.
 
 ## Requirements :gear:
 
@@ -110,6 +111,16 @@ To install Kick-DL from source, follow these steps:
     ```
 
 Now you can use `kick-dl` from anywhere in your terminal.
+
+## Usage :computer:
+
+To use the "Download All VODs" feature, follow these steps:
+
+1. Open your terminal.
+2. Run the `kick-dl` command.
+3. Enter the Kick channel name when prompted.
+4. Select the "Download All VODs" option from the list.
+5. The tool will download all VODs from the specified channel.
 
 ## Disclaimer :warning:
 

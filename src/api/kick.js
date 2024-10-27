@@ -41,4 +41,25 @@ export default class KickApi {
 			};
 		}
 	};
+
+	fetchAllVods = async (channel) => {
+		try {
+			const result = await Scraper.fetchVideoData(channel);
+			return {
+				status: true,
+				data: result,
+			};
+		} catch (error) {
+			if (error.message.includes('403')) {
+				return {
+					status: false,
+					message: 'Failed to load URL: 403 - Access Forbidden',
+				};
+			}
+			return {
+				status: false,
+				message: error.message,
+			};
+		}
+	};
 }
